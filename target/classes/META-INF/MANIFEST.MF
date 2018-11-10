@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: intro-spring-boot-web
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: rafaelcordeiro
+Implementation-Vendor-Id: br.com.devmedia
+Build-Jdk: 1.8.0_191
+Implementation-URL: http://projects.spring.io/spring-boot/intro-spring
+ -boot-web/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

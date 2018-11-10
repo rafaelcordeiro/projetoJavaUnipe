@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spotmusic</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Spotmusic</h1>
+    </div>
+
+    <div>
+        <a class="btn btn-primary" th:href="@{/produtos/cadastro}">Novo produto</a>
+    </div>
+    <hr/>
+
+    <div th:if="${produtos != null}">
+        <h4>
+            Produtos
+        </h4>
+
+        <div th:if="${mensagem != null}">
+            <div class="alert alert-info" role="alert">
+                <span th:text="${mensagem}">mensagem</span>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+            </tr>
+            </thead>
+            <tr th:each="produto : ${produtos}">
+                <td >
+                    <a th:text="${produto.nome}" th:href="@{/produtos/{id}/produtos/listar(id=${produto.id})}">nome</a>
+                </td>
+                <td th:text="${produto.tipo}">tipo</td>
+                <td>
+                    <a class="btn btn-sm btn-info" th:href="@{/produtos/{id}/atualizar(id=${produto.id})}">Editar</a>
+                    <a class="btn btn-sm btn-danger" th:href="@{/produtos/{id}/remover(id=${produto.id})}">Excluir</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div th:if="${#lists.isEmpty(produtos)}">
+        <div class="alert alert-info" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign"></span>
+            0 produtos cadastrados!
+        </div>
+    </div>
+    <hr/>
+
+    <a class="btn btn-light" href="/home">Voltar</a>
+    <hr/>
+
+    <footer class="footer">
+        <p>&copy; 2018 DevMedia</p>
+    </footer>
+
+</div>
+</body>
+</html>
